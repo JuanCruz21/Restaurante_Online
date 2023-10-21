@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-let conexion = "mongodb+srv://reyreyes2:reyreyes2@cluster0.zfseznu.mongodb.net/"
+let conexion = "mongodb+srv://fernelgarcia91:fernelgarcia91@clusterrestaurante.xgapmhl.mongodb.net/"
 
 mongoose.connect(conexion)
 .then(event=>console.log('Conexión exitosa'))
