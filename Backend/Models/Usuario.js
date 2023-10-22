@@ -42,8 +42,8 @@ const Usuario = mongoose.Schema({
         unique: true
     }
 },{
-    collection: 'Usuarios',
+    collection: 'Usuario',
     versionKey: false
 })
 
-   module.exports = mongoose.model('Usuarios', Usuarios);
+   module.exports = mongoose.model('Usuario', Usuario);
