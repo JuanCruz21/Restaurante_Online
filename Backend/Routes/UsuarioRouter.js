@@ -4,7 +4,7 @@ const UsuarioRouter = express.Router();
 
 //LISTAR USUARIOS
 UsuarioRouter.get('/', (req, res)=> {
-    Usuario.findById()
+    Usuario.find()
         .then(datos=> res.json({Usuarios:datos}))
         .catch(error=>res.json({mensaje:error}));
 });

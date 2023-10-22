@@ -41,4 +41,9 @@ const Usuario = mongoose.Schema({
         type: String,
         unique: true
     }
+},{
+    collection: 'Usuarios',
+    versionKey: false
 })
+
+   module.exports = mongoose.model('Usuarios', Usuarios);
