@@ -1,6 +1,5 @@
 const express = require('express');
 const Reserva = require('../Models/Reserva');
-const Reserva = require('../Models/Reserva');
 const ReservaRouter = express.Router();
 
 //Crear Reserva
