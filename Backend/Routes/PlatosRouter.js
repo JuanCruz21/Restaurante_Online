@@ -9,16 +9,16 @@ PlatosRouter.get("/", (req,res)=>{
 })
 
 PlatosRouter.post("/",(req,res)=>{
-    const platos = new Platos(req,res)
+    const platos = new Plato(req.body)
     platos.save()
     .then(datos=>res.json({Platos: datos}))
     .catch(error=>res.json({menssage: error}))
 })
 
-PlatosRouter.put("/",(req,res)=>{
-    const platos = new Platos(req.body)
-    Plato.updateOne({_id: Platos._id}, platos)
-    .then(datos=>res.json({Platos: datos}))
+PlatosRouter.patch("/",(req,res)=>{
+    const platos = new Plato(req.body)
+    Plato.updateOne({_id: platos._id}, platos)
+    .then(datos=>res.json(datos))
     .catch(error=>res.json({menssage: error}))
 })
 
