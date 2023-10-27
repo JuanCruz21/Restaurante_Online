@@ -11,35 +11,35 @@ const Usuario = mongoose.Schema({
     },
     tipoIdentificacion:{
         type: String,
-        unique:true
+        unique:true, require:true
     },
     identificacion:{
         type: String,
-        unique:true
+        unique:true, require:true
     },
     direccionCliente:{
         type: String,
-        unique: true
+        unique: true, require:true
     },
     telefonoCliente:{
         type: Number,
-        unique: true
+        unique: true, require:true
     },
     emailCliente:{
         type: String,
-        unique: true
+        unique: true, require:true
     },
     claveCliente:{
         type: String,
-        unique: true
+        unique: true, require:true
     },
     epsMesero:{
         type: String,
-        unique:true
+        unique:true, require:true
     },
     pensionMesero:{
         type: String,
-        unique: true
+        unique: true, require:true
     }
 },{
     collection: 'Usuario',

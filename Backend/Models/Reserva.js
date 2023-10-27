@@ -1,5 +1,5 @@
 const mongoose = require('../DB/ConectionDB');
-const Usuario = require('./Usuario');
+//const Usuario = require('./Usuario');
 
 const Reserva = mongoose.Schema({
     fechaReserva: { type: String, unique: true, require: true },
