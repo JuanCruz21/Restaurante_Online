@@ -11,7 +11,7 @@ UsuarioRouter.get('/', (req, res)=> {
 
 //GUARDAR USUARIOS
 UsuarioRouter.post('/', (req,res)=>{
-    const usuario = new Usuario(req,res);
+    const usuario = new Usuario(req.body);
     usuario.save()
         .then(datos=>res.json(datos))
         .catch(error=>res.json({mensaje:error}));
