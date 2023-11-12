@@ -31,7 +31,8 @@ const Pedido = mongoose.Schema({
     },
     estado: [{
         type: String, 
-        require: true 
+        require: true,
+        enum: ["Pendiente","Activo","Finalizado","Reservado"]
     }]
 }, {
     collection: 'Pedido',

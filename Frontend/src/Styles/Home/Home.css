@@ -1,0 +1,33 @@
+
+:root{
+    --Primario: #85BDA6;
+    --Secundario: #3E885B;
+    --Tercero: #2F4B26;
+    --Cuarto: #BEDCFE;
+    --Quinto: #C0D7BB;
+}
+body{
+    margin: 0;
+    background-color: var(--Quinto);
+}
+
+.titulo{
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--Tercero);
+    margin-bottom: 3rem;
+}
+.contenedor{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%) ;
+    align-items: center;
+    align-content: center;
+    width: 40rem;
+}
+
+.textoHome{
+    text-align: center;
+    color: var(--Tercero);
+}
