@@ -6,6 +6,7 @@
     --Cuarto: #BEDCFE;
     --Quinto: #C0D7BB;
 }
+
 body{
     margin: 0;
     background-color: var(--Quinto);

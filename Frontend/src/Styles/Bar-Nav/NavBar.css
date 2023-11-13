@@ -1,0 +1,15 @@
+:root{
+    --Primario: #85BDA6;
+    --Secundario: #3E885B;
+    --Tercero: #2F4B26;
+    --Cuarto: #BEDCFE;
+    --Quinto: #C0D7BB;
+}
+
+body{
+    margin: 0;
+}
+
+.navbar-style{
+ background-color: #BEDCFE;
+}
