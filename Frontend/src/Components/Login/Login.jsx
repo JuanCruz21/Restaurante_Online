@@ -1,5 +1,9 @@
-
-function Login(){
+import {useState} from "react";
+const Login =() => {
+ const [email,setEmail] = useState('');
+ const [password,setPassword] = useState('');
+setEmail()
+setPassword()
  return(
     <>
     <form className="formu contenedor">
@@ -7,12 +11,12 @@ function Login(){
         <p className="message">Ingresa ahora a la app. </p>  
                 
         <label>
-            <input required="" placeholder="" type="email" className="input"/>
+            <input required="" placeholder="" type="email" className="input" value={email}/>
             <span>Correo</span>
         </label> 
             
         <label>
-            <input required="" placeholder="" type="password" className="input"/>
+            <input required="" placeholder="" type="password" value={password} className="input"/>
             <span>Contraseña</span>
         </label>
         <button className="submit">Ingresar</button>
@@ -20,5 +24,5 @@ function Login(){
     </form>
     </>
  )
-}
+};
 export default Login;
