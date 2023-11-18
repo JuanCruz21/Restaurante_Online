@@ -4,7 +4,7 @@ const ReservaRouter = express.Router();
 
 //Crear Reserva
 ReservaRouter.post('/', (req, res) => {
-    const Reserva = new Reserva(req, res);
+    const Reserva = new Reserva(req.body);
     Reserva.save()
         .then(datos => res.json(datos))
         .catch(error => res.json({ mensaje: error }));
