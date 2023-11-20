@@ -40,9 +40,8 @@ function Usuarios(){
                 direccionCliente: "",
                 telefonoCliente: "",
                 emailCliente: "",
-                claveCliente: "",
-                epsMesero: "",
-                pensionMesero: ""
+                claveCliente: ""
+                
 
             })
         }
