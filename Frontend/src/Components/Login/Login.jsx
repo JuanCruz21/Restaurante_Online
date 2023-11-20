@@ -1,9 +1,13 @@
 import {useState} from "react";
+import { useNavigate } from "react-router-dom";
+
 const Login =() => {
+    const navegar = useNavigate()
  const [email,setEmail] = useState('');
- const [password,setPassword] = useState('');
-setEmail()
-setPassword()
+ const [usuario,setUsuario] = useState({
+    _id: null,
+    usuario: "",
+ });
  return(
     <>
     <form className="formu contenedor">
@@ -11,12 +15,12 @@ setPassword()
         <p className="message">Ingresa ahora a la app. </p>  
                 
         <label>
-            <input required="" placeholder="" type="email" className="input" value={email}/>
+            <input required="" placeholder="" type="email" className="input" />
             <span>Correo</span>
         </label> 
             
         <label>
-            <input required="" placeholder="" type="password" value={password} className="input"/>
+            <input required="" placeholder="" type="password"  className="input"/>
             <span>Contraseña</span>
         </label>
         <button className="submit">Ingresar</button>

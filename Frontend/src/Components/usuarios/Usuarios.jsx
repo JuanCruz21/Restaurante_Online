@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+/*import {useState, useEffect} from "react";
 import Navegador from '../NavBar/NavBar';
 import TableUsuarios from './TableUsuarios'
 import {actualizarUsuario, agregarUsuario, eliminarUsuario, getListaUsuarios} from './FormUsuarios'
@@ -80,6 +80,15 @@ function Usuarios(){
             {mostrarLista && <TableUsuarios usuarios= {usuarios} onDelete={eliminar} inView={ver}/>}
         </div>
     )
+}
+
+export default Usuarios*/
+
+
+function Usuarios() {
+  return (
+    <div>Usuarios</div>
+  )
 }
 
 export default Usuarios
