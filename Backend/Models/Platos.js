@@ -1,6 +1,6 @@
 const mongoose = require('../DB/ConectionDB');
 
-const Platos = mongoose.Schema({
+const platos = mongoose.Schema({
     nombrePlato: 
     {   type: String,
         unique: true, 
@@ -22,4 +22,4 @@ const Platos = mongoose.Schema({
  versionKey: false
 })
 
-module.exports = mongoose.model('Platos', Platos);
+module.exports = mongoose.model('Platos', platos);
