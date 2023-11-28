@@ -9,7 +9,7 @@ function Platos() {
   const [mostrarlista , setmostrarLista] = useState(true)
   
   const listar = () => {
-    getListaPlatos().then((data) => {setPlato(data)}).catch((err)=> {console.log(err)})
+    getListaPlatos().then((data) => {setPlatos(data)}).catch((err)=> {console.log(err)})
   }
 
   if(platos.length == 0)
@@ -30,9 +30,9 @@ function Platos() {
     }
     const guardar = (plato) => {
       if(plato._id=== null){
-        agregarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})
+        agregarPlatos(plato).then((data)=> {listar(data)}).catch((err)=>{console.log(err)})
       }else{
-        actualizarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})
+        actualizarPlatos(plato).then((data)=> {listar(data)}).catch((err)=>{console.log(err)})
       }
       setmostrarLista(true)
     }
@@ -54,7 +54,7 @@ function Platos() {
       {!mostrarlista && <button className="btn btn-secondary m-4" onClick={verLista}>Ver Lista de Platos</button>}
       {mostrarlista && <button className="btn btn-primary m-4" onClick={verLista}>Crear Plato</button>}
       {!mostrarlista && <div>
-        <FormPlatos onSave={guardar} setPlatos={plato}/>
+        <FormPlatos onSave={guardar} Platos={plato}/>
         </div>
         }
       {mostrarlista && <TablaPlatos platos={platos} onDelete={Eliminar} onView={verLista}/>}

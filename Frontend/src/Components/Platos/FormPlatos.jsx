@@ -1,8 +1,8 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 
 const FormPlatos = (props) => {
-    const {setPlatos,onSave} = props;
+    const {Platos,onSave} = props;
     const [plato,setPlato] = useState({
         _id: null,
         nombrePlato: "",
@@ -26,15 +26,14 @@ const FormPlatos = (props) => {
       });
   };
 
-    useEffect(()=>{
-        if(setPlato)
-            setPlato(setPlatos)
-    }, [setPlato])
+  useEffect(() => {
+    setPlato(Platos);
+}, [Platos]);
 
 
     if(plato == null){
         limpiar()
-        }
+    }
 
     const onClickGuardar = (e) => {
      e.preventDefault();
@@ -48,15 +47,15 @@ const FormPlatos = (props) => {
         <div className="row">
             <div className="col">
                 <label className="form-label">Nombre Plato</label>
-                <input type="text" className="form-control" value={plato.nombrePlato} onChange={handleChange}/>
+                <input type="text" name="nombrePlato" className="form-control" value={plato.nombrePlato} onChange={handleChange}/>
             </div>
             <div className="col">
                 <label className="form-label">Precio Plato</label>
-                <input type="number" className="form-control" value={plato.precioPlato} onChange={handleChange}/>
+                <input type="number" name="precioPlato" className="form-control" value={plato.precioPlato} onChange={handleChange}/>
             </div>
             <div className="col">
                 <label className="form-label">Observaciones</label>
-                <input type="text" className="form-control" value={plato.observacionPlato} onChange={handleChange}/>
+                <input type="text" name="observacionPlato" className="form-control" value={plato.observacionPlato} onChange={handleChange}/>
             </div>
         </div>
       </form>
