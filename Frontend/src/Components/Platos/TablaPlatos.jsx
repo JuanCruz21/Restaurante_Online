@@ -9,6 +9,7 @@ function TablaPlatos(props) {
             <th>Nombre</th>
             <th>Precio</th>
             <th>Observación</th>
+            <th>Acciones</th>
         </tr>
       </thead>
       <tbody>

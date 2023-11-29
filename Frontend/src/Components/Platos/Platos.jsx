@@ -14,7 +14,7 @@ function Platos() {
 
   if(platos.length == 0)
     listar()  
-    const verLista = (e) => {
+    const verLista = () => {
       if (mostrarlista){
         setmostrarLista(false)
       }
@@ -57,7 +57,7 @@ function Platos() {
         <FormPlatos onSave={guardar} Platos={plato}/>
         </div>
         }
-      {mostrarlista && <TablaPlatos platos={platos} onDelete={Eliminar} onView={verLista}/>}
+      {mostrarlista && <TablaPlatos platos={platos} onDelete={Eliminar} onView={ver}/>}
     </>
   )
 }
