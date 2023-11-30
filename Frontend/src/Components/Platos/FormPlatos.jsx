@@ -37,7 +37,7 @@ const FormPlatos = (props) => {
 
     const onClickGuardar = (e) => {
      e.preventDefault();
-     onSave()
+     onSave(plato)
      limpiar()   
     }
 

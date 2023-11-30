@@ -5,7 +5,7 @@ import FormPlatos from "./FormPlatos";
 function Platos() {
   
   const [platos, setPlatos] = useState([])
-  const [plato , setPlato] = useState(null)
+  const [plato , setPlato] = useState({})
   const [mostrarlista , setmostrarLista] = useState(true)
   
   const listar = () => {
@@ -28,11 +28,13 @@ function Platos() {
         })
       }
     }
+
     const guardar = (plato) => {
+      console.log(plato)
       if(plato._id=== null){
-        agregarPlatos(plato).then((data)=> {listar(data)}).catch((err)=>{console.log(err)})
+        agregarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})
       }else{
-        actualizarPlatos(plato).then((data)=> {listar(data)}).catch((err)=>{console.log(err)})
+        actualizarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})
       }
       setmostrarLista(true)
     }

@@ -6,6 +6,7 @@ function TablaPlatos(props) {
     <table className='table table-striped'>
       <thead className='table-primary'>
         <tr>
+            <th>Id</th>
             <th>Nombre</th>
             <th>Precio</th>
             <th>Observación</th>
@@ -15,6 +16,7 @@ function TablaPlatos(props) {
       <tbody>
         {platos.map((plato)=>{
             return(<tr key={plato._id}>
+                <td>{plato._id}</td>
                 <td>{plato.nombrePlato}</td>
                 <td>{plato.precioPlato}</td>
                 <td>{plato.observacionPlato}</td>
