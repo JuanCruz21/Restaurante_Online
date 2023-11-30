@@ -1,5 +1,5 @@
-
-function TablaPlatos(props) {
+import React, { useEffect } from "react";
+function TableUsuarios(props) {
     const {usuarios, onDelete, onView}=props;
   return (
     <>
@@ -10,6 +10,7 @@ function TablaPlatos(props) {
             <th>Nombre</th>
             <th>Apellido</th>
             <th>tipoIdentificacion</th>
+            <th>identificación</th>
             <th>emailCliente</th>
             <th>direccionCliente</th>
             <th>claveCliente</th>
@@ -21,13 +22,15 @@ function TablaPlatos(props) {
       <tbody>
         {usuarios.map((usuario)=>{
             return(<tr key={usuario._id}>
-                <td>{usuario.identificacion}</td>
+                <td>{usuario._id}</td>
                 <td>{usuario.nombreCliente}</td>
+                <td>{usuario.apellidoCliente}</td>
                 <td>{usuario.tipoIdentificacion}</td>
+                <td>{usuario.identificacion}</td>
                 <td>{usuario.emailCliente}</td>
                 <td>{usuario.direccionCliente}</td>
                 <td>{usuario.claveCliente}</td>
-                <td>{usuario.apellidoCliente}</td>
+                
                 <td>{usuario.epsMesero}</td>
                 <td>{usuario.pensionMesero}</td>
                 <td>
@@ -42,4 +45,4 @@ function TablaPlatos(props) {
   )
 }
 
-export default TablaPlatos
+export default TableUsuarios

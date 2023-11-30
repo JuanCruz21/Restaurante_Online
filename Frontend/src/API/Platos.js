@@ -31,7 +31,7 @@ export async function actualizarPlatos(plato){
     export async function eliminarPlato(id){
         const res = await fetch(url+`${id}`,{
         method: 'DELETE',
-        headers: {'content-type': 'application/json'}
+        headers: {'content-type': 'application/json'},
     });
     const data = await res.json();
     console.log(data)

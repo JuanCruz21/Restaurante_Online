@@ -2,14 +2,14 @@ import { useState,useEffect } from "react"
 import {getListaUsuarios, agregarUsuarios,actualizarUsuarios,eliminarUsuarios} from "../../API/Usuarios"
 import TableUsuarios from "./TableUsuarios";
 import FormUsuarios from "./FormUsuarios";
-function usuarios() {
+function Usuarios() {
   
-  const [usuarios, setusuarios] = useState([])
-  const [usuario , setusuario] = useState({})
+  const [usuarios, setUsuarios] = useState([])
+  const [usuario , setUsuario] = useState({})
   const [mostrarlista , setmostrarLista] = useState(true)
   
   const listar = () => {
-    getListaUsuarios().then((data) => {setusuarios(data)}).catch((err)=> {console.log(err)})
+    getListaUsuarios().then((data) => {setUsuarios(data)}).catch((err)=> {console.log(err)})
   }
 
   if(usuarios.length == 0)
@@ -20,7 +20,7 @@ function usuarios() {
       }
       else{
         setmostrarLista(true)
-        setusuario({
+        setUsuario({
           _id: null,
           nombreCliente: "",
           apellidoCliente: "",
@@ -54,7 +54,7 @@ function usuarios() {
     }
 
     const ver = (usuario) => {
-      setusuario(usuario)
+      setUsuario(usuario)
       setmostrarLista(false)
     }
 
@@ -63,7 +63,7 @@ function usuarios() {
       {!mostrarlista && <button className="btn btn-primary m-4" onClick={verLista}>Ver Lista de usuarios</button>}
       {mostrarlista && <button className="btn btn-primary m-4" onClick={verLista}>Crear usuario</button>}
       {!mostrarlista && <div>
-        <FormUsuarios onSave={guardar} usuarios={usuario}/>
+        <FormUsuarios onSave={guardar} Usuarios={usuario}/>
         </div>
         }
       {mostrarlista && <TableUsuarios usuarios={usuarios} onDelete={Eliminar} onView={ver}/>}
@@ -71,4 +71,4 @@ function usuarios() {
   )
 }
 
-export default usuarios
+export default Usuarios

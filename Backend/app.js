@@ -10,7 +10,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.json());
 
-app.use('/usuarios', UsuarioRouter);
+app.use('/Usuarios', UsuarioRouter);
 app.use('/Plato'  , PlatosRouter);
 app.use('/Reserva'  , ReservaRouter);
 app.use('/Pedido', PedidoRouter);

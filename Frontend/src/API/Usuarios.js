@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/usuarios/"
+const url = "http://localhost:5000/Usuarios/"
 
 export async function getListaUsuarios(){
     const res = await fetch(url);
