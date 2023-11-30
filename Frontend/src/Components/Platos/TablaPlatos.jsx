@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 function TablaPlatos(props) {
     const {platos, onDelete, onView}=props;
+    
   return (
     <>
     <table className='table table-striped'>

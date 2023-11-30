@@ -30,8 +30,8 @@ function Platos() {
     }
 
     const guardar = (plato) => {
-      console.log(plato)
-      if(plato._id=== null){
+      console.log(plato._id)
+      if(plato._id === undefined){
         agregarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})
       }else{
         actualizarPlatos(plato).then((data)=> {listar()}).catch((err)=>{console.log(err)})

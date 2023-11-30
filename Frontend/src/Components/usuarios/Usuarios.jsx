@@ -1,94 +1,74 @@
-/*import {useState, useEffect} from "react";
-import Navegador from '../NavBar/NavBar';
-import TableUsuarios from './TableUsuarios'
-import {actualizarUsuario, agregarUsuario, eliminarUsuario, getListaUsuarios} from './FormUsuarios'
-import {useNavigate} from 'react-router-dom';
+import { useState,useEffect } from "react"
+import {getListaUsuarios, agregarUsuarios,actualizarUsuarios,eliminarUsuarios} from "../../API/Usuarios"
+import TableUsuarios from "./TableUsuarios";
+import FormUsuarios from "./FormUsuarios";
+function usuarios() {
+  
+  const [usuarios, setusuarios] = useState([])
+  const [usuario , setusuario] = useState({})
+  const [mostrarlista , setmostrarLista] = useState(true)
+  
+  const listar = () => {
+    getListaUsuarios().then((data) => {setusuarios(data)}).catch((err)=> {console.log(err)})
+  }
 
-function Usuarios(){
-    const navegar = useNavigate();
-    const [usuarioActivo, setUsuarioActivo] = useState(null)
-
-    useEffect(() => {
-        setUsuarioActivo(localStorage.getItem("usuarioActivo"));
-        if(localStorage.getItem("usuarioActivo") === null)
-        navegar("/login")
-    },[navegar, usuarioActivo])
-
-    const [usuarios, stUsuarios] = useState([]);
-    const [usuario, setUsuario] = useState(null);
-    const [mostrarLista, setMostrarLista] = useState(true);
-
-    const listar = () => {
-        getListaUsuarios().then((data) => {setUsuarios(data)}).catch((err) => {console.log(err)})
-    }
-
-    if(usuarios.length === 0)
-        listar();
-
-    const verLista = (e) => {
-        if(mostrarLista){
-            setMostrarLista(false);
-        }
-        else{
-            setMostrarLista(true);
-            setUsuario({
-                _id: null,
-                nombreCliente: "",
-                apellidoCliente: "",
-                tipoIdentificacion: "",
-                identificacion: "",
-                direccionCliente: "",
-                telefonoCliente: "",
-                emailCliente: "",
-                claveCliente: ""
-                
-
-            })
-        }
+  if(usuarios.length == 0)
+    listar()  
+    const verLista = () => {
+      if (mostrarlista){
+        setmostrarLista(false)
+      }
+      else{
+        setmostrarLista(true)
+        setusuario({
+          _id: null,
+          nombreCliente: "",
+          apellidoCliente: "",
+          tipoIdentificacion: "",
+          identificacion: "",
+          direccionCliente: "",
+          telefonoCliente: "",
+          emailCliente: "",
+          claveCliente: "",
+          epsMesero : "",
+          pensionMesero : ""
+        })
+      }
     }
 
     const guardar = (usuario) => {
-        if(usuario._id === null){
-            agregarUsuario(usuario).then((data) => {listar()}).catch((err) => {console.log(err)})
-        }
-        else{
-            actualizarUsuario(usuario).then((data) => listar()).catch((err) => {console.log(err)})
-        }
-        setMostrarLista(true);
+      console.log(usuario._id)
+      if(usuario._id === undefined){
+        agregarUsuarios(usuario).then((data)=> {listar()}).catch((err)=>{console.log(err)})
+      }else{
+        actualizarUsuarios(usuario).then((data)=> {listar()}).catch((err)=>{console.log(err)})
+      }
+      setmostrarLista(true)
+    }
+    
+    const Eliminar = (id) => {
+        eliminarUsuarios(id).then((data)=>{
+        if(data.deleteCount === 1)
+          listar()
+      }).catch((err)=>{console.log(err)})
     }
 
-    const eliminar = (id) => {
-        eliminarUsuario(id).then((data) => {
-            if(data.deletedCount === 1)
-                listar();
-        }).catch((err) => {console.log(err)})
+    const ver = (usuario) => {
+      setusuario(usuario)
+      setmostrarLista(false)
     }
 
-    const ver = (usuario)=>{
-        setUsuario(usuario);
-        setMostrarLista(false);
-    }
-
-    return (
-        <div>
-            <Navegador/>
-            {!mostrarLista && <button className="btn btn-secondary" onClick={verLista}>ver lista</button>}
-            {mostrarLista && <button className="btn btn-secondary" onClick={verLista}>crear usuario</button>}
-            {!mostrarLista && <div>
-                <FormUsuarios onSave = {guardar} setUsuario={usuario}/>
-                </div>}
-            {mostrarLista && <TableUsuarios usuarios= {usuarios} onDelete={eliminar} inView={ver}/>}
-        </div>
-    )
-}
-
-export default Usuarios*/
-
-
-function Usuarios() {
   return (
-    <div>Usuarios</div>
+    <>
+      {!mostrarlista && <button className="btn btn-primary m-4" onClick={verLista}>Ver Lista de usuarios</button>}
+      {mostrarlista && <button className="btn btn-primary m-4" onClick={verLista}>Crear usuario</button>}
+      {!mostrarlista && <div>
+        <FormUsuarios onSave={guardar} usuarios={usuario}/>
+        </div>
+        }
+      {mostrarlista && <TableUsuarios usuarios={usuarios} onDelete={Eliminar} onView={ver}/>}
+    </>
   )
 }
 
-export default Usuarios
+export default usuarios

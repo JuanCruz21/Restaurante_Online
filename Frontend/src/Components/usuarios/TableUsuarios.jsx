@@ -1,44 +1,45 @@
-import React from 'react'
-import usuario from './Usuarios'
 
-function TableUsuarios(props) {
-    const {usuarios, onDelete, onView} = props;
+function TablaPlatos(props) {
+    const {usuarios, onDelete, onView}=props;
   return (
-    <table>
-        <thead>
-            <tr>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>TipoId</th>
-                <th>Id</th>
-                <th>Dirección</th>
-                <th>Telefono</th>
-                <th>email</th>
-                <th>Clave</th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            {usuarios.map((usuario) => {
-                return(<tr key={usuario._id}>
-                    <td>{usuario.nombreCliente}</td>
-                    <td>{usuario.apellidoCliente}</td>
-                    <td>{usuario.tipoIdentificacion}</td>
-                    <td>{usuario.identificacion}</td>
-                    <td>{usuario.direccionCliente}</td>
-                    <td>{usuario.telefonoCliente}</td>
-                    <td>{usuario.emailCliente}</td>
-                    <td>{usuario.claveCliente}</td>
-                    <td>
-                        <button onClick={()=>{onDelete(usuario._id)}}>Eliminar</button>
-                        <button onClick={()=>{onView(usuario)}}>Ver</button>
-                    </td>
-                </tr>)
-            })}
-        </tbody>
-
+    <>
+    <table className='table table-striped'>
+      <thead className='table-primary'>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Apellido</th>
+            <th>tipoIdentificacion</th>
+            <th>emailCliente</th>
+            <th>direccionCliente</th>
+            <th>claveCliente</th>
+            <th>epsMesero</th>
+            <th>pensionMesero</th>
+            <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {usuarios.map((usuario)=>{
+            return(<tr key={usuario._id}>
+                <td>{usuario.identificacion}</td>
+                <td>{usuario.nombreCliente}</td>
+                <td>{usuario.tipoIdentificacion}</td>
+                <td>{usuario.emailCliente}</td>
+                <td>{usuario.direccionCliente}</td>
+                <td>{usuario.claveCliente}</td>
+                <td>{usuario.apellidoCliente}</td>
+                <td>{usuario.epsMesero}</td>
+                <td>{usuario.pensionMesero}</td>
+                <td>
+                    <button className='btn btn-primary btn-sm m-4' onClick={()=>(onView(usuario))}>Actualizar</button>
+                    <button className='btn btn-danger btn-sm m-4' onClick={()=>{onDelete(usuario._id)}}>Eliminar</button>
+                </td>
+            </tr>)
+        })}
+      </tbody>
     </table>
+    </>
   )
 }
 
-export default TableUsuarios
+export default TablaPlatos
