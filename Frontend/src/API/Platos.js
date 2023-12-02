@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/Plato/"
+const url = "http://18.223.206.46:5000/Plato/"
 
 export async function getListaPlatos(){
     const res = await fetch(url);
