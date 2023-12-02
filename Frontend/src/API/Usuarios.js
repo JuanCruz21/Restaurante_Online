@@ -1,4 +1,4 @@
-const url = "http://localhost:5000/Usuarios/"
+const url = "http://18.223.206.46:5000/Usuarios/"
 
 export async function getListaUsuarios(){
     const res = await fetch(url);
